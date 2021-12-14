@@ -88,10 +88,10 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -l
         shell: bash
-      - name: 'Set up Visual C Build Tools Workload for Visual Studio 2019 Build Tools on Windows'
-        if: matrix.os == 'windows-latest'
-        run: |
-          choco install visualstudio2019-workload-vctools
+      # - name: 'Set up Visual C Build Tools Workload for Visual Studio 2019 Build Tools on Windows'
+      #   if: matrix.os == 'windows-latest'
+      #   run: |
+      #     choco install visualstudio2019-workload-vctools
       # https://github.com/graalvm/graalvm-ce-builds/releases/vm-20.3.3
       # https://github.com/graalvm/graalvm-ce-builds/releases/vm-20.3.4
       # 20.3.3 is the last graalvm-ce java 8 on Windows
@@ -117,7 +117,8 @@ jobs:
         run: |
           # the path of visualstudio2019-workload-vctools is different then vs_installer
           # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-          call   "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+          # call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+          call   "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
           dir
           mkdir build
           cd build
